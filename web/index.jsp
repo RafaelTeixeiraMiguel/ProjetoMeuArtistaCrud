@@ -3,12 +3,22 @@
     Created on : 14/10/2019, 20:46:10
     Author     : Rafael Teixeira Miguel
 --%>
+<%@page import="br.com.fatecpg.meuArtistaCrud.Usuario"%>
+<%@page import="br.com.fatecpg.meuArtistaCrud.Db"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
     if(request.getParameter("entrar") != null){
         String usuario = request.getParameter("user");
         String senha = request.getParameter("pass");
+        
+        Usuario user = new Usuario();
+        user.setUsuario(usuario);
+        user.setSenha(senha);
+        
+        if(Db.autenticaUsuario(user)){
+            response.sendRedirect("home.jsp");
+        }
     }
     
 %>
@@ -35,25 +45,21 @@
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Bem vindo!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Bem vindo ao projeto Meu Artista!</h1>
                                         </div>
                                         <form class="user" action="index.jsp" method="POST">
                                             <div class="form-group">
                                                 <input type="text" class="form-control form-control-user" name="user" id="user" aria-describedby="emailHelp" placeholder="Usuário">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control form-control-user" name="user" id="pass" placeholder="Senha">
+                                                <input type="password" class="form-control form-control-user" name="pass" id="pass" placeholder="Senha">
                                             </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox small">
-                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck">Lembrar</label>
-                                                </div>
-                                            </div>
-                                            <button type="submit" name="entrar" class="btn btn-primary btn-user btn-block">
+                                            <button type="submit" name="entrar" class="btn btn-primary btn-user btn-block" value="entrar">
                                                 Entrar
                                             </button>
-                                            <hr>
+                                            <%if(request.getParameter("entrar") != null){%>
+                                                <p class="small" center style="color:red">Usuário ou senha inválido</p>
+                                            <%}%>
                                         </form>
                                         <hr>
                                         <div class="text-center">

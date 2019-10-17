@@ -1,4 +1,4 @@
-package br.com.fatecpg.meuAristaCrud;
+package br.com.fatecpg.meuArtistaCrud;
 
 /**
  *
