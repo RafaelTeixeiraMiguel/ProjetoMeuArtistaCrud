@@ -1,170 +1,88 @@
 <%-- 
     Document   : index
-    Created on : 13/10/2019, 20:49:54
+    Created on : 14/10/2019, 20:46:10
     Author     : Rafael Teixeira Miguel
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    if(request.getParameter("entrar") != null){
+        String usuario = request.getParameter("user");
+        String senha = request.getParameter("pass");
+    }
+    
+%>
 <html lang="en">
 
     <head>
         <%@include file="../WEB-INF/jspf/head.jspf"%>
     </head>
 
-    <body id="page-top">
+    <body class="bg-gradient-primary">
 
-        <!-- Page Wrapper -->
-        <div id="wrapper">
+        <div class="container">
 
-            <!-- Sidebar -->
-            <%@include file="../WEB-INF/jspf/sidebar.jspf"%>
-            <!-- End of Sidebar -->
+            <!-- Outer Row -->
+            <div class="row justify-content-center">
 
-            <!-- Content Wrapper -->
-            <div id="content-wrapper" class="d-flex flex-column">
+                <div class="col-xl-10 col-lg-12 col-md-9">
 
-                <!-- Main Content -->
-                <div id="content">
-
-                    <!-- Topbar -->
-                    <%@include file="../WEB-INF/jspf/topbar.jspf"%>
-                    <!-- End of Topbar -->
-
-                    <!-- Begin Page Content -->
-                    <div class="container-fluid">
-
-                        <!-- Page Heading -->
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Guia</h1>
-                        </div>
-
-                        <!-- Content Row -->
-
-                        <div class="row">
-                            <div class="col-lg-4">
-
-                                <!-- Default Card Example -->
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        Artistas
-                                    </div>
-                                    <div class="card-body">
-                                        Desenvolvido por {Nome}
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-4">
-
-                                <!-- Default Card Example -->
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        Discos
-                                    </div>
-                                    <div class="card-body">
-                                        Desenvolvido por {nome}
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+                                        <div class="text-center">
+                                            <h1 class="h4 text-gray-900 mb-4">Bem vindo!</h1>
+                                        </div>
+                                        <form class="user" action="index.jsp" method="POST">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-user" name="user" id="user" aria-describedby="emailHelp" placeholder="Usuário">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-user" name="user" id="pass" placeholder="Senha">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                    <label class="custom-control-label" for="customCheck">Lembrar</label>
+                                                </div>
+                                            </div>
+                                            <button type="submit" name="entrar" class="btn btn-primary btn-user btn-block">
+                                                Entrar
+                                            </button>
+                                            <hr>
+                                        </form>
+                                        <hr>
+                                        <div class="text-center">
+                                            <a class="small" href="forgot-password.html">Esqueceu a senha?</a>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="small" href="register.html">Criar uma conta!</a>
+                                        </div>
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="col-lg-4">
-
-                                <!-- Default Card Example -->
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        Músicas
-                                    </div>
-                                    <div class="card-body">
-                                        Desenvolvido por {Nome}
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">Colaboradores</h1>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-3">
-
-                                <!-- Default Card Example -->
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        Afonso Bento
-                                    </div>
-                                    <img class="card-img-top" src="img/afonso.jpg" alt="Card image cap">
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-3">
-
-                                <!-- Default Card Example -->
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        Marina Lopes
-                                    </div>
-                                    <img class="card-img-top" src="img/marina.jpg" alt="Card image cap">
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-3">
-
-                                <!-- Default Card Example -->
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        Matusalém
-                                    </div>
-                                    <img class="card-img-top" src="img/matusalem.jpg" alt="Card image cap">
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-lg-3">
-
-                                <!-- Default Card Example -->
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        Rafael Teixeira
-                                    </div>
-                                    <img class="card-img-top" src="img/rafael.jpg" alt="Card image cap">
-                                    <div class="card-body">
-
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </div>
-                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <%@include file="../WEB-INF/jspf/footer.jspf"%>
-                <!-- End of Footer -->
 
             </div>
-            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Page Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <%@include file="../WEB-INF/jspf/scripts.jspf"%>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
     </body>
 

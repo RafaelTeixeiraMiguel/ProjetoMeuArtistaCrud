@@ -34,7 +34,7 @@
                             <div class="error mx-auto" data-text="404">404</div>
                             <p class="lead text-gray-800 mb-5">Página não encontrada</p>
                             <p class="text-gray-500 mb-0">Você tentou acessar uma página inexistente</p>
-                            <a href="index.jsp">&larr; Voltar a página inicial</a>
+                            <a href="home.jsp">&larr; Voltar a página inicial</a>
                         </div>
 
                     </div>
