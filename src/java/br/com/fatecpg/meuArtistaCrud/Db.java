@@ -1,21 +1,21 @@
 package br.com.fatecpg.meuArtistaCrud;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
  * @author Rafael Teixeira Miguel
  */
 public class Db {
-
-    private static ArrayList<Artista> artistas;
-    private static ArrayList<Usuario> usuarios;
-
-    public static int getArtistaIndex(Artista artista) {
-        return artistas.indexOf(artista);
-    }
-
-    public static ArrayList<Artista> getArtistas() {
+   private static ArrayList<Artista> artistas;
+   private static ArrayList<Usuario> usuarios;
+   
+   public static int getArtistaIndex(Artista artista){
+       return artistas.indexOf(artista);
+   }
+     public static ArrayList<Artista> getArtista() {
         if (artistas == null) {
             artistas = new ArrayList<>();
             Musica a1m1 = new Musica("O Papa é pop", 190, "Rock", "Humberto G.");
@@ -37,63 +37,86 @@ public class Db {
             Artista a2 = new Artista("Mamonas Assassinas", "Rock", new String[]{"Dinho, Beto Hinoto, Julio Rasec, Sergio Reoli, Samuel Reis"});
             artistas.add(a2);
         }
-        return artistas;
-    }
-
-    public static Artista getArtista(Disco disco) {
-
-        for (Artista artista : getArtistas()) {
-            for (Disco discoDoArtista : artista.getDiscos()) {
-                if (disco.equals(discoDoArtista)) {
+ 
+        Collections.sort(artistas, new Comparator<Artista>() {
+           @Override
+           public int compare(Artista o1, Artista o2) {
+               return o1.getNome().compareTo(o2.getNome());
+           }
+        });
+       return artistas;
+   }
+   
+   public static ArrayList<Disco> getDiscos(){
+       ArrayList<Disco> discos = new ArrayList<>();
+       for (Artista artista: getArtista())
+       {
+           for (Disco disco: artista.getDiscos())
+           {
+               discos.add(disco);
+           }
+       }
+        Collections.sort(discos, new Comparator<Disco>() {
+           @Override
+           public int compare(Disco o1, Disco o2) {
+               return o1.getNome().compareTo(o2.getNome());
+           }
+        });
+       return discos;
+   }
+   
+   public static Artista getArtista(Disco disco){
+       for (Artista artista: getArtista())
+       {
+           for (Disco discoDoArtista: artista.getDiscos())
+           {
+               if(disco.equals(discoDoArtista))
+               {
                     return artista;
-                }
-            }
-        }
-        return null;
-    }
+               }
+           }
+       }
+       return null;
+   }
+   
+   public static ArrayList<Musica> getMúsicas(){
+       ArrayList<Musica> musicas = new ArrayList<>();
+       for (Artista artista: getArtista())
+       {
+           for (Disco disco: artista.getDiscos())
+           {
+               for(Musica música: disco.getMusicas())
+               {
+                   musicas.add(música);
+               }
+           }
+       }
+       Collections.sort(musicas, new Comparator<Musica>() {
+           @Override
+           public int compare(Musica o1, Musica o2) {
+               return o1.getNome().compareTo(o2.getNome());
+           }
+       });
+       return musicas;
+   }
+   
+   public static Disco getDisco(Musica musica){
+       for(Disco disco: getDiscos()){
+           for(Musica musicaDoDisco: disco.getMusicas()){
+               if(musica.equals(musicaDoDisco))
+                   return disco;
+           }
+       } 
 
-    public static ArrayList<Disco> getDiscos() {
-        ArrayList<Disco> discos = new ArrayList<>();
-        for (Artista artista : getArtistas()) {
-            for (Disco disco : artista.getDiscos()) {
-                discos.add(disco);
-            }
-        }
-        return discos;
-    }
-
-    public static ArrayList<Musica> getMusicas() {
-        ArrayList<Musica> musicas = new ArrayList<>();
-        for (Artista artista : getArtistas()) {
-            for (Disco disco : artista.getDiscos()) {
-                for (Musica musica : disco.getMusicas()) {
-                    musicas.add(musica);
-                }
-            }
-
-        }
-
-        return musicas;
-    }
-
-    public static Disco getDiscos(Musica musica) {
-        for (Disco disco : getDiscos()) {
-            for (Musica musicaDoDisco : disco.getMusicas()) {
-                if (musica.equals(musicaDoDisco)) {
-                    return disco;
-                }
-            }
-        }
-        return null;
-    }
-    
+       return null;
+   }
     public static ArrayList<Usuario> getUsuarios(){
         if(usuarios == null){
             usuarios = new ArrayList<>();
             Usuario adm = new Usuario();
             adm.setUsuario("admin".toUpperCase());
             adm.setSenha("admin".toLowerCase());
-            
+
             usuarios.add(adm);
         }
         return usuarios;
@@ -110,3 +133,6 @@ public class Db {
         return false;
     }
 }
+
+    
+
