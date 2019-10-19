@@ -7,20 +7,20 @@ import java.util.ArrayList;
  * @author Rafael Teixeira Miguel
  */
 public class Artista {
-private String nome;
-    private String gênero;
+    private String nome;
+    private String genero;
     private String[] integrantes;
-    private ArrayList<Disco> discos = new ArrayList <>();
-
+    private ArrayList<Disco> discos = new ArrayList<>();
+    //construtor sem parametro
     public Artista() {
     }
-
-    public Artista(String nome, String gênero, String[] integrantes) {
+    //construtor com todos os parametros 
+    public Artista(String nome, String genero, String[] integrantes) {
         this.nome = nome;
-        this.gênero = gênero;
+        this.genero = genero;
         this.integrantes = integrantes;
     }
-
+    //construção dos getters e setters com todos os atributos encapsulados
     public String[] getIntegrantes() {
         return integrantes;
     }
@@ -37,12 +37,12 @@ private String nome;
         this.nome = nome;
     }
 
-    public String getGênero() {
-        return gênero;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setGênero(String gênero) {
-        this.gênero = gênero;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public ArrayList<Disco> getDiscos() {
@@ -53,4 +53,9 @@ private String nome;
         this.discos = discos;
     }
 
+    int indexOf(Artista artistas) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
 }
