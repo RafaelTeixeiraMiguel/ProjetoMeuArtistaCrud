@@ -63,7 +63,7 @@
                                         Discos
                                     </div>
                                     <div class="card-body">
-                                        Desenvolvido por {nome}
+                                        Desenvolvido por Marina
                                     </div>
                                 </div>
 
