@@ -24,7 +24,7 @@ public class Db {
             Disco a1d1 = new Disco("O Papa é pop", 1990, "BMG");
             a1d1.getMusicas().add(a1m1);
             a1d1.getMusicas().add(a1m2);
-            Artista a1 = new Artista("Charlie Brown Jr", "Rock", new String[]{"Chorão, Champigon, Renato Pelado, Marcão"});
+            Artista a1 = new Artista("Charlie Brown Jr", "Rock", new String[]{"Chorão", "Champigon", "Renato Pelado", "Marcão"});
             a1.getDiscos().add(a1d1);
             artistas.add(a1);
             Musica a2m1 = new Musica("Sweet old of mine", 480, "Rock", "Axl,Slash");
@@ -121,6 +121,8 @@ public class Db {
             Usuario adm = new Usuario();
             adm.setUsuario("admin".toUpperCase());
             adm.setSenha("admin".toLowerCase());
+            adm.setNome("admin".toUpperCase());
+            adm.setTipoUsuario("a".toUpperCase());
 
             usuarios.add(adm);
         }
