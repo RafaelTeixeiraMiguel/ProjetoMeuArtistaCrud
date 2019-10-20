@@ -6,11 +6,6 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <%@include file="../WEB-INF/jspf/head.jspf"%>
-        <%@include file="../WEB-INF/jspf/footer.jspf"%>
-        <%@include file="../WEB-INF/jspf/scripts.jspf"%>
-        <%@include file="../WEB-INF/jspf/sidebar.jspf"%>
-        <%@include file="../WEB-INF/jspf/topbar.jspf"%>
         <h1>Musicas</h1>
         <table border="1">
             <tr>

@@ -15,12 +15,15 @@ public class Db {
    public static int getArtistaIndex(Artista artista){
        return artistas.indexOf(artista);
    }
-     public static ArrayList<Artista> getArtista() {
+   
+   public static ArrayList<Artista> getArtista() {
         if (artistas == null) {
             artistas = new ArrayList<>();
             Musica a1m1 = new Musica("O Papa é pop", 190, "Rock", "Humberto G.");
             Musica a1m2 = new Musica("Pra ser sincero", 181, "Rock", "Humberto G.");
             Disco a1d1 = new Disco("O Papa é pop", 1990, "BMG");
+            a1d1.getMusicas().add(a1m1);
+            a1d1.getMusicas().add(a1m2);
             Artista a1 = new Artista("Charlie Brown Jr", "Rock", new String[]{"Chorão, Champigon, Renato Pelado, Marcão"});
             a1.getDiscos().add(a1d1);
             artistas.add(a1);
@@ -35,6 +38,8 @@ public class Db {
             a2d2.getMusicas().add(a2m4);
             a2d2.getMusicas().add(a2m3);
             Artista a2 = new Artista("Mamonas Assassinas", "Rock", new String[]{"Dinho, Beto Hinoto, Julio Rasec, Sergio Reoli, Samuel Reis"});
+            a2.getDiscos().add(a2d1);
+            a2.getDiscos().add(a2d2);
             artistas.add(a2);
         }
  

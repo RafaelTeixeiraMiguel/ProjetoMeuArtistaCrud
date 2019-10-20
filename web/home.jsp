@@ -50,7 +50,7 @@
                                         Artistas
                                     </div>
                                     <div class="card-body">
-                                        Desenvolvido por {Nome}
+                                        Desenvolvido por Afonso
                                     </div>
                                 </div>
 
