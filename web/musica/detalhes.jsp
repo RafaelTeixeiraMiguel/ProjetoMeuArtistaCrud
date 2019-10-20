@@ -17,7 +17,7 @@
     <body>
         <h1>Música</h1>
         <% if (request.getParameter("i")==null) {%>
-        <div> É preciso informar o índice do artista</div>
+        <div> É preciso informar o índice da música</div>
         <%}else{%>
             <%try{%>
                 <%int i = Integer.parseInt(request.getParameter("i"));%>
