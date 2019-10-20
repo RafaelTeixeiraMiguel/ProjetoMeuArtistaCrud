@@ -39,32 +39,44 @@
 
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Disco</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Discos</h6>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <body>                   
-                                        <% if (request.getParameter("i")==null) {%>
-                                        <div> É preciso informar o índice do disco</div>
-                                        <%}else{%>
-                                        <%try{%>
-                                        <%int i = Integer.parseInt(request.getParameter("i"));%>
-                                        <%Disco disco = Db.getDiscos().get(i);%>
-                                        <h3>Dados do disco</h3><br>
-                                        <h4> Nome</h4><div><%= disco.getNome()%></div><br>
-                                        <h4>Ano</h4><div><%= disco.getAno()%></div><br>
-                                        <h4>Gravadora</h4><div><%= disco.getGravadora()%></div><br>
-                                        <% for(Musica musica : disco.getMusicas()){%>
-                                        <% aux += ", " + musica.getNome(); %>
-                                        <%}%>
-                                        <% aux = aux.replaceFirst(",", ""); %>
-                                        <h4>Músicas</h4><div><%=aux%></div><br>
-                                        <%}catch(Exception e){%>
-                                    <div> Disco não encontrada</div>
-                                    <%}%>
-                                    <%}%>
-
-                                    </body>
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Ano</th>
+                                                <th>Gravadora</th>
+                                                <th>Músicas</th>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Ano</th>
+                                                <th>Gravadora</th>
+                                                <th>Músicas</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <%for(Disco disco: Db.getDiscos()){%>
+                                            <% aux = ""; %>
+                                            <tr>
+                          
+                                                <td><a href="detalhes.jsp?i=<%=Db.getDiscos().indexOf(disco)%>"><%= disco.getNome()%></a></td>
+                                                <td><%= disco.getAno()%></td>
+                                                 <td><%= disco.getGravadora()%></td>
+                                   
+                                                <% for(Musica musica : disco.getMusicas()){%>
+                                                <% aux += ", " + musica.getNome(); %>
+                                                <%}%>
+                                                <% aux = aux.replaceFirst(",", ""); %>
+                                                <td><%=aux%></td>
+                                            </tr>
+                                            <%}%>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
