@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import= "br.com.fatecpg.meuArtistaCrud.Db"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +51,8 @@
                                         Artistas
                                     </div>
                                     <div class="card-body">
-                                        Desenvolvido por Afonso
+                                        <p>Desenvolvido por Afonso</p>
+                                        <p>Quantidade de artistas: <%=Db.getArtista().size()%>
                                     </div>
                                 </div>
 
@@ -63,7 +65,8 @@
                                         Discos
                                     </div>
                                     <div class="card-body">
-                                        Desenvolvido por Marina
+                                        <p>Desenvolvido por Marina</p>
+                                        <p>Quantidade de discos: <%=Db.getDiscos().size()%>
                                     </div>
                                 </div>
 
@@ -76,7 +79,8 @@
                                         Músicas
                                     </div>
                                     <div class="card-body">
-                                        Desenvolvido por {Nome}
+                                        <p>Desenvolvido por Matusalém</p>
+                                        <p>Quantidade de músicas: <%=Db.getMúsicas().size()%>
                                     </div>
                                 </div>
 

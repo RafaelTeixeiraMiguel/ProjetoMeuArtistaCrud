@@ -18,6 +18,7 @@ public class Db {
    }
    public static int getDiscoIndex(Disco disco){
        return discos.indexOf(disco);
+       
    }
    
    public static ArrayList<Artista> getArtista() {
